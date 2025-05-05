@@ -59,7 +59,7 @@ MODEL = your downloaded model path
 ## Running the Chatbot
 
 ```bash
-python iteration_5.py
+python iteration_6.py
 ```
 
 You’ll see a prompt. Type your medical question, or use commands like `help`, `save`, `list`, `load <id>`, or `exit`.
@@ -84,8 +84,10 @@ You’ll see a prompt. Type your medical question, or use commands like `help`, 
    Example download command:
 
    ```bash
-   wget https://huggingface.co/TheBloke/gemma-2b-it-GGUF/resolve/main/gemma-2b-it-q4_0.gguf -O models/gemma-2b-it-q4_0.gguf
+   wget https://huggingface.co/google/gemma-3-4b-it-qat-q4_0-gguf 
    ```
+   <img width="1317" alt="Screenshot 2025-05-05 at 3 28 35 PM" src="https://github.com/user-attachments/assets/f2540308-c2e0-4857-94d1-67d6a72ce3aa" />
+
 
 2. **Install llama-cpp-python**
 
@@ -153,13 +155,6 @@ You’ll see a prompt. Type your medical question, or use commands like `help`, 
 GEMINI_API=AIzaSyBIBYPFH8hq5rtL939KMRFLH9D1YxWscSs
 DB_FAISS_PATH=/Users/vinaykushwaha/Documents/myprojects/medical_chatbot/iteration_3/vectorstore/db_faiss
 CONVERSATIONS_PATH=/Users/vinaykushwaha/Documents/myprojects/medical_chatbot/conversations
+MODEL = your downloaded model path
 ```
 
----
-
-## License
-
-This project is for educational and research purposes.  
-Always consult a qualified healthcare provider for medical advice.
-
----
