@@ -21,7 +21,7 @@ The chatbot saves conversation history, supports semantic search over previous c
 ### 1. Clone the Repository
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/Vkushwahaa/Medical_chatbot.git
 cd medical_chatbot
 ```
 
@@ -47,6 +47,7 @@ Create a `.env` file in your project root with the following content:
 GEMINI_API=your_gemini_api_key_here
 DB_FAISS_PATH=/absolute/path/to/your/vectorstore/db_faiss
 CONVERSATIONS_PATH=/absolute/path/to/your/conversations
+MODEL = your downloaded model path
 ```
 
 - **GEMINI_API**: Your Google Gemini API key ([get from Google AI Studio](https://aistudio.google.com/app/apikey)).
