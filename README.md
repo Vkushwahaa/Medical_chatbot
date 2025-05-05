@@ -149,12 +149,5 @@ You’ll see a prompt. Type your medical question, or use commands like `help`, 
 
 ---
 
-## Example `.env` File
 
-```
-GEMINI_API=AIzaSyBIBYPFH8hq5rtL939KMRFLH9D1YxWscSs
-DB_FAISS_PATH=/Users/vinaykushwaha/Documents/myprojects/medical_chatbot/iteration_3/vectorstore/db_faiss
-CONVERSATIONS_PATH=/Users/vinaykushwaha/Documents/myprojects/medical_chatbot/conversations
-MODEL = your downloaded model path
-```
 
