@@ -12,6 +12,7 @@ asyncer==0.0.7
 attrs==25.3.0
 bidict==0.23.1
 bitsandbytes==0.42.0
+cachetools==5.5.2
 certifi==2025.1.31
 chainlit==2.3.0
 charset-normalizer==3.4.1
@@ -32,8 +33,12 @@ filelock==3.18.0
 filetype==1.2.0
 frozenlist==1.6.0
 fsspec==2025.3.2
+google-ai-generativelanguage==0.6.18
+google-api-core==2.24.2
+google-auth==2.39.0
 googleapis-common-protos==1.70.0
 grpcio==1.71.0
+grpcio-status==1.71.0
 h11==0.14.0
 httpcore==1.0.8
 httpx==0.28.1
@@ -53,8 +58,13 @@ jupyter_core==5.7.2
 langchain==0.3.23
 langchain-community==0.3.21
 langchain-core==0.3.55
+langchain-google-genai==2.1.4
 langchain-huggingface==0.1.2
 langchain-text-splitters==0.3.8
+langgraph==0.3.34
+langgraph-checkpoint==2.0.25
+langgraph-prebuilt==0.1.8
+langgraph-sdk==0.1.63
 langsmith==0.3.33
 Lazify==0.4.0
 literalai==0.1.103
@@ -78,6 +88,7 @@ opentelemetry-proto==1.31.1
 opentelemetry-sdk==1.31.1
 opentelemetry-semantic-conventions==0.52b1
 orjson==3.10.16
+ormsgpack==1.9.1
 packaging==24.2
 parso==0.8.4
 pexpect==4.9.0
@@ -85,11 +96,14 @@ pillow==11.2.1
 platformdirs==4.3.7
 prompt_toolkit==3.0.51
 propcache==0.3.1
+proto-plus==1.26.1
 protobuf==5.29.4
 psutil==7.0.0
 ptyprocess==0.7.0
 pure_eval==0.2.3
 py-cpuinfo==9.0.0
+pyasn1==0.6.1
+pyasn1_modules==0.4.2
 pydantic==2.11.3
 pydantic-settings==2.9.1
 pydantic_core==2.33.1
@@ -106,6 +120,7 @@ pyzmq==26.4.0
 regex==2024.11.6
 requests==2.32.3
 requests-toolbelt==1.0.0
+rsa==4.9.1
 safetensors==0.5.3
 scikit-learn==1.6.1
 scipy==1.13.1
@@ -137,6 +152,7 @@ watchfiles==0.20.0
 wcwidth==0.2.13
 wrapt==1.17.2
 wsproto==1.2.0
+xxhash==3.5.0
 yarl==1.20.0
 zipp==3.21.0
 zstandard==0.23.0

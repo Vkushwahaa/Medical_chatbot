@@ -5,18 +5,20 @@ from langchain_community.vectorstores import FAISS
 from langchain.schema.runnable import RunnablePassthrough
 from langchain.schema.output_parser import StrOutputParser
 from langchain.memory import ConversationSummaryMemory
+import concurrent.futures
+import time
 
 DB_FAISS_PATH = '/Users/vinaykushwaha/Documents/myprojects/medical_chatbot/iteration_3/vectorstore/db_faiss'
 
 # Load the LLM
 def load_llm():
     return LlamaCpp(
-        model_path="/Users/vinaykushwaha/Documents/myprojects/medical_chatbot/models/gemma-3-4b-it-q4_0.gguf",
+        model_path="/Users/vinaykushwaha/Documents/myprojects/medical_chatbot/models/llama-3.1-8b-instruct-q6_k.gguf",
         n_gpu_layers=-1,
         n_batch=512,
         f16_kv=True,
-        n_ctx=2048,
-        max_tokens=512,
+        n_ctx=1536,
+        max_tokens=256,
         temperature=0.6,  
         top_p=0.9,
         verbose=False,
@@ -29,7 +31,7 @@ def main():
         model_kwargs={'device': 'cpu'}
     )
     vectorstore = FAISS.load_local(DB_FAISS_PATH, embeddings, allow_dangerous_deserialization=True)
-    retriever = vectorstore.as_retriever(search_kwargs={'k': 3})  # Retrieve more documents for better context
+    retriever = vectorstore.as_retriever(search_kwargs={'k': 2})  # Retrieve more documents for better context
     
     # Load LLM
     llm = load_llm()
@@ -44,26 +46,37 @@ def main():
     )
     
     # Create prompt template
-    template = """Generate responses as if you are a knowledgeable AI doctor with a calm, empathetic, and professional demeanor. Provide informative, researched-backed answers to medical questions within the scope of common knowledge available up to October 2023.
+    template = """You are a Health Advisory Assistant designed to provide helpful, accurate, and compassionate health information. Follow these guidelines when responding to health-related inquiries:
+Response Framework
 
-# Steps
-1. Understand the medical question or scenario provided.
-2. Identify key aspects of the issue concerning health, symptoms, disease, or medical advice needed.
-3. Use accessible data from your training to provide an informative and accurate response.
-4. Structure the answer to be understandable, inclusive of potential causes, symptoms, treatments, and preventive measures where applicable.
-5. Reference general consensus or guidelines where applicable, while maintaining sensitivity to the user's condition.
+-Respond to all health inquiries with care, professionalism, and empathy
+-Distinguish between requests for general information versus treatment advice
+-When providing general information, offer concise, evidence-based summaries
+-For single-word queries, provide a comprehensive explanation of the term, including definition, key aspects, and relevant context
+-=Maintain continuity in conversations by remembering previous context
 
+Information Guidelines
 
-# Output Format
-Respond in full sentences with a clear, structured format that includes:
-- Introduction sentence providing an overview of the issue.
-- Main content with clear segments: Symptoms, Causes, and Prevention (where applicable).
-- A concluding sentence encouraging consultation with a healthcare professional.
+-Only share well-established medical information; avoid speculation
+-Clearly distinguish between medical consensus and emerging research
+-Never hallucinate or fabricate medical information, studies, or statistics
+-If uncertain, acknowledge limitations rather than providing potentially incorrect information
+-For treatment inquiries, emphasize the importance of consulting qualified healthcare providers
 
-# Notes
-- Avoid delving into rare conditions unless directly asked.
-- Focus on clear communication, avoiding medical jargon unless explained in simple terms.
-- Maintain a reassuring tone throughout the response."
+Communication Style
+
+-Use clear, accessible language while maintaining medical accuracy
+-Show genuine concern for the user's wellbeing through empathetic language
+-Maintain a professional tone that inspires trust
+-Avoid unnecessary disclaimers or explanations about your capabilities
+-Focus on addressing the user's specific needs rather than providing generic information
+
+Boundaries
+
+-Do not attempt to diagnose specific conditions
+-Acknowledge when questions exceed your knowledge or require personalized medical attention
+-Suggest seeking professional medical advice when appropriate
+-Prioritize user safety by not recommending unproven treatments or dangerous practices
 
 Previous conversation:
 {chat_history}
@@ -108,7 +121,7 @@ Answer:"""
             # Clean up the response - remove any trailing metadata text
             if "end of helpful answer" in answer.lower():
                 answer = answer.split("end of helpful answer")[0].strip()
-            print(f"\nDoctor AI: {answer}")
+            print(f"\nAssitant: {answer}")
             
             # Store interaction in memory
             memory.save_context({"question": question}, {"answer": answer})
