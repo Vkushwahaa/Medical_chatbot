@@ -43,7 +43,7 @@ def load_llm():
 # # Load the LLM model
 # def load_llm():
 #     return LlamaCpp(
-#         model_path="/Users/vinaykushwaha/Documents/myprojects/medical_chatbot/models/gemma-3-4b-it-q4_0.gguf",
+#         model_path=os.environ.get("MODEL"),
 #         n_gpu_layers=-1,
 #         n_batch=512,
 #         f16_kv=True,

@@ -100,7 +100,7 @@ You’ll see a prompt. Type your medical question, or use commands like `help`, 
 
    def load_llm():
        return LlamaCpp(
-           model_path="models/your-model.gguf",
+           model_path=os.environ.get("MODEL"),
            n_gpu_layers=-1,
            n_batch=256,
            f16_kv=True,
@@ -115,7 +115,7 @@ You’ll see a prompt. Type your medical question, or use commands like `help`, 
 4. **Run the chatbot again:**
 
    ```bash
-   python iteration_5.py
+   python iteration_6.py
    ```
 
 ---
