@@ -12,9 +12,11 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Get vector database path from environment
-DB_FAISS_PATH = os.environ.get("DB_FAISS_PATH")
+DB_FAISS_PATH = os.getenv("DB_FAISS_PATH")
 if not DB_FAISS_PATH:
     raise ValueError("DB_FAISS_PATH environment variable not set")
+
+print(f"Using vector store path: {DB_FAISS_PATH}")
 
 
 class Retriever:
