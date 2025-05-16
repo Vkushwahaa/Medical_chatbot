@@ -1,9 +1,9 @@
-# Techraki medical Chatbot (RAG-Powered)
+# Techraki Medical Chatbot (RAG-Powered)
 
-## A Retrieval-Augmented Generation (RAG) medical chatbot that remembers previous 5 conversation and can answer health-related questions using either the **Google Gemini API** (cloud, fast, requires API key) or a **local GGUF LLM** (runs on your machine, no API needed, requires model download).
+## A Retrieval-Augmented Generation (RAG) medical chatbot that remembers previous 5 conversations and can answer health-related questions using either the **Google Gemini API** (cloud, fast, requires API key) or a **local GGUF LLM** (runs on your machine, no API needed, requires model download).
 
 ## Project Structure
-
+```bash
 iteration_7/
 ├──data
 ├──vectorstore
@@ -17,6 +17,7 @@ iteration_7/
 ├── prompt_builder.py # Prompt template creation
 ├── utils.py # Helper functions
 └── .env # Environment variables (create this yourself)
+```
 
 ## Setup Instructions
 
