@@ -84,12 +84,11 @@ You’ll see a prompt. Type your medical question, or use commands like `help`, 
    Example download command:
 
    ```bash
-   wget https://huggingface.co/google/gemma-3-4b-it-qat-q4_0-gguf 
+   wget https://huggingface.co/google/gemma-3-4b-it-qat-q4_0-gguf
    ```
-   
+
 <img width="1317" alt="Screenshot 2025-05-05 at 3 28 35 PM" src="https://github.com/user-attachments/assets/e6132dc4-5309-405b-b9a9-54967cbc00b5" />
 You may sometimes have to fill out a form for the usage of this model.
-
 
 2. **Install llama-cpp-python**
 
@@ -150,6 +149,3 @@ You may sometimes have to fill out a form for the usage of this model.
 - **Slow responses:** Try a smaller model, reduce `n_ctx`, or lower `max_tokens`.
 
 ---
-
-
-
