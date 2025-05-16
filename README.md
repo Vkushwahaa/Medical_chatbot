@@ -18,6 +18,16 @@ iteration_7/
 ├── utils.py # Helper functions
 └── .env # Environment variables (create this yourself)
 
+
+medical_chatbot/
+├── main.py                  # Entry point for the application
+├── llm_handler.py           # LLM model loading and configuration
+├── retriever.py             # Vector database and document retrieval
+├── conversation.py          # Conversation history management
+├── prompt_builder.py        # Prompt template creation
+├── utils.py                 # Helper functions
+└── .env                     # Environment variables (create this yourself)
+
 ## Setup Instructions
 
 ### 1. Clone the Repository
