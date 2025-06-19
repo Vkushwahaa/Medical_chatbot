@@ -1,4 +1,4 @@
-# Techraki Medical Chatbot (RAG-Powered)
+# Medical Chatbot (RAG-Powered)
 
 ## A Retrieval-Augmented Generation (RAG) medical chatbot that remembers previous 5 conversations and can answer health-related questions using either the **Google Gemini API** (cloud, fast, requires API key) or a **local GGUF LLM** (runs on your machine, no API needed, requires model download).
 
